@@ -5,14 +5,15 @@ from datetime import datetime
 from fabric.api import local
 from os.path import isdir
 
+
 def do_pack():
-    """ Generate a .tgz archive from the contents """
+    """generates a tgz archive"""
     try:
         date = datetime.now().strftime("%Y%m%d%H%M%S")
-        if isdir("version") == False:
-            local("mkdir version")
-        name = "version/web_static_{}.tgz".format(date)
-        local("tar -cvzf {} web_static".format(name))
-        return name
+        if isdir("versions") is False:
+            local("mkdir versions")
+        file_name = "versions/web_static_{}.tgz".format(date)
+        local("tar -cvzf {} web_static".format(file_name))
+        return file_name
     except:
         return None
