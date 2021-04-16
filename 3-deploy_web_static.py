@@ -48,6 +48,7 @@ def do_deploy(archive_path):
     except BaseException:
         return (False)
 
+
 def deploy():
     """
     Creates and distributes an archive to web servers
